@@ -1,3 +1,6 @@
+// Define the flag variable at the top of the Jenkinsfile
+def flag = true
+
 pipeline {
     agent any
     stages {
@@ -8,6 +11,11 @@ pipeline {
             }
         }
         stage('Test') {
+            when {
+                expression {
+                    return flag == true
+                }
+            }
             steps {
                 echo 'Testing..'
                 // Here you can define commands for your tests
