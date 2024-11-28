@@ -21,3 +21,16 @@ echo 'Deploying....'
 }
 }
 }
+  post{
+
+  always {
+            echo 'Post building condition running'
+  }
+
+  failure {
+            echo 'post action if build failed'
+  }
+
+  }
+}
+
